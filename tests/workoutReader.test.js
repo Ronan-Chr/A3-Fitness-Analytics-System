@@ -15,8 +15,8 @@ beforeAll(() => {
 afterAll(() => {
     try {
         fs.unlinkSync(TEST_CSV_FILE);
-    } catch {
-        // It's okay if the file is already gone
+    } catch (error) {
+        console.error('Failed to delete test file:', error);
     }
 });
 
@@ -34,6 +34,7 @@ describe('workoutCalculator', () => {
     });
 });
 
+// Test readWorkoutData function
 describe('readWorkoutData', () => {
     test('returns the correct data structure', async () => {
         const data = await readWorkoutData(TEST_CSV_FILE);
@@ -42,5 +43,6 @@ describe('readWorkoutData', () => {
         expect(data[0]).toHaveProperty('date');
         expect(data[0]).toHaveProperty('exercise');
         expect(data[0]).toHaveProperty('duration');
+        expect(data[0]).toHaveProperty('calories');
     });
 });
