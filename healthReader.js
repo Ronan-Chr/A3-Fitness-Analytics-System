@@ -7,14 +7,14 @@ async function healthMetricCounter(filePath) {
         const healthData = JSON.parse(data);
         const totalEntries = healthData.metrics.length;
         // Log the total number of health metric entries
-        console.log('Total entries:', totalEntries);
+        console.log('Total health entries:', totalEntries);
         return totalEntries;
     } catch (error) {
         // Handle different types of errors
         if (error.code === 'ENOENT') {
-            console.error('Check Path:', error);
+            console.error('File not found - check the path:', error.message);
         } else if (error.name === 'SyntaxError') {
-            console.log('Invalid JSON - Checks the formating')
+            console.log('Invalid JSON - Checks the formating:', error.message);
         } else {
             console.log('Unknown Error:', error.message);
         }
