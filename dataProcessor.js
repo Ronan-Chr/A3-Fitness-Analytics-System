@@ -7,7 +7,7 @@ async function processFiles() {
         const userName = process.env.USER_NAME;
         const weeklyGoal = parseFloat(process.env.WEEKLY_GOAL);
 
-        console.log('Processing data for: ', userName);
+        console.log('Processing data for:', userName);
 
         console.log('📁 Reading workout data...');
         const workoutData = await workoutCalculator('./data/workouts.csv');
@@ -21,10 +21,10 @@ async function processFiles() {
         }
 
         console.log('\n=== SUMMARY ===');
-        console.log('Workouts found: ', workoutData.totalWorkouts);
+        console.log('Workouts found:', workoutData.totalWorkouts);
         console.log('Total workout minutes:', workoutData.totalMinutes);
-        console.log('Health entries found: ', healthEntries);
-        console.log('Weekly goal: ', weeklyGoal, 'minutes');
+        console.log('Health entries found:', healthEntries);
+        console.log('Weekly goal:', weeklyGoal, 'minutes');
 
         if (workoutData.totalMinutes >= weeklyGoal) {
             console.log(`🎉 Congratulations ${userName}! You have exceeded your weekly goal!`);

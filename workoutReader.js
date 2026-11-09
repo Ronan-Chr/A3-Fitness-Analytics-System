@@ -38,10 +38,5 @@ async function workoutCalculator(filepath) {
     }
 }
 
-workoutCalculator('./data/workouts.csv').then(result => {
-    console.log('Result:', result);
-}).catch(error => {
-    console.error('Error:', error);
-});
-
+// TEST PRINTS
 module.exports = { workoutCalculator, readWorkoutData };
